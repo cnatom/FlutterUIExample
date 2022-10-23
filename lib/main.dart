@@ -25,22 +25,48 @@ class MyApp extends StatelessWidget {
         // body：App的主体部分
         body: Column(
           children: [
-            Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius:BorderRadius.circular(16),
-                border:Border.all(
-                  color: Colors.black,
-                  width: 10
-                )
-              ),
-              child: Text("12344123123"),
+            buildBorderContainer(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  buildBlock(),
+                  buildBlock(color: Colors.blue)
+                ],
+              )
+            ),
+            buildBorderContainer(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  buildBlock(),
+                  buildBlock(color: Colors.blue)
+                ],
+              )
             )
           ],
         ),
       ),
+    );
+  }
+
+  Container buildBorderContainer({Widget? child}) {
+    return Container(
+            margin: EdgeInsets.all(10),
+            height: 300,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.blue, width: 5)),
+            child: child,
+          );
+  }
+
+  Widget buildBlock({Color color = Colors.red}) {
+    return Container(
+      height: 80,
+      width: 80,
+      color: color,
     );
   }
 }
