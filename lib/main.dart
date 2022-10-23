@@ -23,7 +23,23 @@ class MyApp extends StatelessWidget {
           title: Text("Welcome to Flutter"),
         ),
         // body：App的主体部分
-        body: Text('Hello World'),
+        body: Column(
+          children: [
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius:BorderRadius.circular(16),
+                border:Border.all(
+                  color: Colors.black,
+                  width: 10
+                )
+              ),
+              child: Text("12344123123"),
+            )
+          ],
+        ),
       ),
     );
   }
